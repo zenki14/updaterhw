@@ -1,5 +1,10 @@
 #Updater HW
 
+1. Clone Repo
+2. Navigate to dir in a terminal
+3. run "npm install" to install dependancies
+4. run the "npx cypress open" or "npx cypress run" command
+
 **Why did you choose this testing strategy to test the above scenario?**
 It was the simplest and most straightforward way to complete the requested scenario in the shortest amount of time.
 
