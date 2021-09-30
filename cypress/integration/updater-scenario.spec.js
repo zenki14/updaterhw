@@ -1,0 +1,30 @@
+describe('Updater App Scenario', () => {
+  beforeEach(() => {
+    cy.visit('https://app.preprod.updatron.com/n/quick-setup/')
+  })
+
+  it('Attempts the scenario defined by HW', () => {
+    cy.get('[type="submit"]').as('submit').should('contain', 'Sign In')
+    cy.get('[name="email"]').type('zenki144@gmail.com')
+    cy.get('[name="password"]').type('a123456')
+    cy.get('@submit').click()
+    cy.url().should('include', '/quick-setup')
+    cy.get('[name="tv_internet"]').should('be.visible').click({force: true})
+    cy.url().should('include', '/landing')
+    cy.get('#new_service').should('be.visible').click({force: true})
+    cy.url().should('include', '/internet-users')
+    cy.get('[name="just_me"]').click({force: true})
+    cy.url().should('include', '/internet-usage')
+    cy.get('[name="gaming"]').click({force: true})
+    cy.get('[type="button"]').should('contain', 'Next').click()
+    cy.url().should('include', '/tv-type')
+    cy.get('[name="not_needed"]').click({force: true})
+    cy.url().should('include', '/phone-needs')
+    cy.get('[name="not_needed"]').click({force: true})
+    cy.url().should('include', '/browse-offers')
+    cy.get('[data-provider-id="att"]').should('be.visible').and('have.length', 1).find('.Offers_layoutInformation__pdbJu').should('contain', '10 Mbps').and('contain', '$55.00')
+    cy.get('[data-provider-id="spectrum"]').should('not.exist')
+    // cy.get('')
+    
+  })
+})
