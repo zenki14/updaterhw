@@ -22,7 +22,7 @@ describe('Updater App Scenario', () => {
     cy.url().should('include', '/phone-needs')
     cy.get('[name="not_needed"]').click({force: true})
     cy.url().should('include', '/browse-offers')
-    cy.get('[data-provider-id="att"]').should('be.visible').and('have.length', 1).find('.Offers_layoutInformation__pdbJu').should('contain', '10 Mbps').and('contain', '$55.00')
+    cy.get('[data-provider-id="att"]').should('be.visible').and('have.length', 1).find('.Offers_layoutInformation__pdbJu').should('contain', '10 Mbps')
     cy.get('[data-provider-id="spectrum"]').should('not.exist')
     // cy.get('')
     

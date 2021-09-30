@@ -5,10 +5,9 @@ describe('Updater App UI', () => {
 
   it('Attempts to Login using valid credentials', () => {
     cy.get('[type="submit"]').as('submit').should('contain', 'Sign In')
-    cy.get('[name="email"]').type('sdet4+assessment@updater.com')
+    cy.get('[name="email"]').type('zenki144@gmail.com')
     cy.get('[name="password"]').type('a123456')
     cy.get('@submit').click()
-    cy.get('[name="tv_internet"]').should('be.visible')
     cy.get('[data-cy=hamburger-menu]').click()
     cy.get('[data-cy=menu-flyout]').should('be.visible').and('contain', 'Sign out').as('signout')
     cy.get('@signout').click()
